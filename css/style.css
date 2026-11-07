@@ -26,11 +26,6 @@ a {
     padding: 80px 0;
 }
 
-
-/* ==============================
-   2. HEADER & NAVBAR
-============================== */
-
 .navbar {
     background-color: var(--background);
     padding: 20px 0;
@@ -88,11 +83,6 @@ a {
     background-color: #705337;
     color: white;
 }
-
-
-/* ==============================
-   3. HERO SECTION
-============================== */
 
 .hero {
     padding: 80px 0;
@@ -184,11 +174,6 @@ a {
     text-decoration: underline;
 }
 
-
-/* ==============================
-   4. SECTION HEADING
-============================== */
-
 .section-heading {
     text-align: center;
     margin-bottom: 45px;
@@ -212,12 +197,7 @@ a {
 .section-heading p {
     color: #82786D;
 }
-
-
-/* ==============================
-   5. CATEGORIES
-============================== */
-
+ 
 .category-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -315,11 +295,6 @@ a {
     color: white;
 }
 
-
-/* ==============================
-   7. ABOUT SECTION
-============================== */
-
 .about {
     text-align: center;
 }
@@ -393,12 +368,6 @@ a {
     margin-top: 20px;
 }
 
-
-/* ==============================
-   9. RESPONSIVE DESIGN
-============================== */
-
-/* Tablets */
 @media (max-width: 991px) {
 
     .hero {
@@ -426,8 +395,6 @@ a {
     }
 }
 
-
-/* Mobile phones */
 @media (max-width: 576px) {
 
     .section-padding {
@@ -493,4 +460,37 @@ a {
     .footer .col-md-4 {
         margin-top: 25px;
     }
+}
+
+#exploreResults {
+    margin-top: 30px;
+}
+
+#exploreResults .book-card {
+    background: #FFFFFF;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+#exploreResults .book-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+#exploreResults .book-info h5 {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+#exploreResults .book-info p {
+    color: #777;
+    min-height: 24px;
+}
+
+#exploreResults .book-info a {
+    margin-top: 10px;
 }
