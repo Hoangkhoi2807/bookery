@@ -1,0 +1,496 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #FAF8F3;
+    color: #3D342B;
+}
+
+a {
+    text-decoration: none;
+}
+
+:root {
+    --primary: #8B6B4A;
+    --secondary: #DCC9AE;
+    --background: #FAF8F3;
+    --text: #3D342B;
+    --light: #FFFFFF;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+
+/* ==============================
+   2. HEADER & NAVBAR
+============================== */
+
+.navbar {
+    background-color: var(--background);
+    padding: 20px 0;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.nav-link {
+    color: var(--text);
+    font-weight: 500;
+    margin: 0 12px;
+    transition: 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary);
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-login {
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    border-radius: 25px;
+    padding: 9px 22px;
+}
+
+.btn-login:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+.btn-register {
+    background-color: var(--primary);
+    color: white;
+    border-radius: 25px;
+    padding: 10px 22px;
+    transition: 0.3s;
+}
+
+.btn-register:hover {
+    background-color: #705337;
+    color: white;
+}
+
+
+/* ==============================
+   3. HERO SECTION
+============================== */
+
+.hero {
+    padding: 80px 0;
+    background-color: #F1EADF;
+}
+
+.hero-content {
+    padding-right: 40px;
+}
+
+.hero-label {
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 55px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 20px 0;
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--primary);
+}
+
+.hero-content p {
+    color: #776D62;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.search-box {
+    display: flex;
+    background-color: white;
+    padding: 7px;
+    border-radius: 35px;
+    max-width: 480px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.search-box input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    padding: 12px 18px;
+    background: transparent;
+    font-family: inherit;
+}
+
+.search-box button {
+    border: none;
+    background-color: var(--primary);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.search-box button:hover {
+    background-color: #705337;
+}
+
+.hero-links {
+    display: flex;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.hero-links a {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.hero-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* ==============================
+   4. SECTION HEADING
+============================== */
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-heading span,
+.about-content > span {
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    margin: 12px 0;
+    font-weight: 700;
+}
+
+.section-heading p {
+    color: #82786D;
+}
+
+
+/* ==============================
+   5. CATEGORIES
+============================== */
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+}
+
+.category-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 30px 15px;
+    text-align: center;
+    color: var(--text);
+    border: 1px solid #EAE2D7;
+    transition: 0.3s;
+}
+
+.category-card:hover {
+    transform: translateY(-7px);
+    background-color: #F1EADF;
+    border-color: var(--secondary);
+}
+
+.category-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.category-card h5 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+
+
+/* ==============================
+   6. FEATURED BOOKS
+============================== */
+
+.featured {
+    background-color: #F1EADF;
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.book-card {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+}
+
+.book-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.book-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: contain;
+    background-color: #FFFFFF;
+    padding: 15px;
+}
+
+.book-info {
+    padding: 18px;
+}
+
+.book-info h5 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.book-info p {
+    color: #82786D;
+    font-size: 14px;
+    margin: 0;
+}
+
+.btn-explore {
+    background-color: var(--primary);
+    color: white;
+    border-radius: 25px;
+    padding: 12px 28px;
+}
+
+.btn-explore:hover {
+    background-color: #705337;
+    color: white;
+}
+
+
+/* ==============================
+   7. ABOUT SECTION
+============================== */
+
+.about {
+    text-align: center;
+}
+
+.about-content {
+    max-width: 700px;
+    margin: auto;
+}
+
+.about-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 700;
+    margin: 20px 0;
+}
+
+.about-content h2 span {
+    color: var(--primary);
+}
+
+.about-content p {
+    color: #82786D;
+    line-height: 1.9;
+    margin-bottom: 30px;
+}
+
+
+/* ==============================
+   8. FOOTER
+============================== */
+
+.footer {
+    background-color: #302A24;
+    color: white;
+    padding: 55px 0 20px;
+}
+
+.footer .logo {
+    color: white;
+}
+
+.footer p {
+    color: #C6BDB2;
+    line-height: 1.8;
+}
+
+.footer h5 {
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.footer a {
+    display: block;
+    color: #C6BDB2;
+    margin-bottom: 12px;
+    transition: 0.3s;
+}
+
+.footer a:hover {
+    color: white;
+}
+
+.footer hr {
+    border-color: #776D62;
+    margin-top: 35px;
+}
+
+.footer .copyright {
+    text-align: center;
+    font-size: 13px;
+    margin-top: 20px;
+}
+
+
+/* ==============================
+   9. RESPONSIVE DESIGN
+============================== */
+
+/* Tablets */
+@media (max-width: 991px) {
+
+    .hero {
+        padding: 60px 0;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero-image {
+        margin-top: 40px;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .book-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nav-buttons {
+        margin-top: 15px;
+    }
+}
+
+
+/* Mobile phones */
+@media (max-width: 576px) {
+
+    .section-padding {
+        padding: 55px 0;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero-content {
+        padding-right: 12px;
+    }
+
+    .hero-image img {
+        height: 260px;
+    }
+
+    .hero-links {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .section-heading h2 {
+        font-size: 28px;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .category-card {
+        padding: 22px 10px;
+    }
+
+    .book-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .book-card img {
+        height: 190px;
+    }
+
+    .book-info {
+        padding: 12px;
+    }
+
+    .book-info h5 {
+        font-size: 15px;
+    }
+
+    .about-content h2 {
+        font-size: 32px;
+    }
+
+    .nav-buttons {
+        padding-bottom: 10px;
+    }
+
+    .footer .col-md-3,
+    .footer .col-md-4 {
+        margin-top: 25px;
+    }
+}
