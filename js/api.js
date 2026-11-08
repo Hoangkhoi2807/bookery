@@ -4,7 +4,6 @@ async function searchBooks(query, maxResults = 12) {
 
     const cacheKey = `books_${query}_${maxResults}`;
 
-    // Check previously loaded results
     const cached = sessionStorage.getItem(cacheKey);
 
     if (cached) {
@@ -30,7 +29,6 @@ async function searchBooks(query, maxResults = 12) {
 
         const books = data.items || [];
 
-        // Save successful results
         sessionStorage.setItem(cacheKey, JSON.stringify(books));
 
         return books;
