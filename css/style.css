@@ -494,3 +494,21 @@ a {
 #exploreResults .book-info a {
     margin-top: 10px;
 }
+
+body {
+    font-family: 'Playfair Display', serif;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: 'Playfair Display', serif;
+}
+
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #3D342B;
+}

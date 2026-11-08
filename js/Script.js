@@ -1,37 +1,83 @@
-const API_URL = "https://www.googleapis.com/books/v1/volumes";
-async function searchBooks(query, maxResults = 12) {
-    try {
-        const response = await fetch(
-            `${API_URL}?q=${encodeURIComponent(query)}&maxResults=${maxResults}`
-        );
+async function loadFeaturedBooks() {
 
-        if (!response.ok) {
-            throw new Error("Unable to connect to Google Books API");
-        }
+    const container = document.getElementById("featuredBooks");
 
-        const data = await response.json();
+    if (!container) return;
 
-        return data.items || [];
+    container.innerHTML = "<p>Loading books...</p>";
 
-    } catch (error) {
-        console.error("API Error:", error);
-        return [];
+    const books = await searchBooks("subject:fiction", 4);
+
+    container.innerHTML = "";
+
+    if (books.length === 0) {
+        container.innerHTML =
+            "<p>Unable to load books. Please try again later.</p>";
+        return;
     }
+
+    books.forEach(book => {
+
+        const info = book.volumeInfo;
+
+        const title = info.title || "Unknown Title";
+
+        const author = info.authors
+            ? info.authors.join(", ")
+            : "Unknown Author";
+
+        const image = info.imageLinks?.thumbnail || "";
+
+        const card = document.createElement("div");
+        card.className = "book-card";
+
+        const img = document.createElement("img");
+        img.src = image || "https://placehold.co/200x280?text=No+Cover";
+        img.alt = title + " cover";
+        img.loading = "lazy";
+
+        const bookInfo = document.createElement("div");
+        bookInfo.className = "book-info";
+
+        const heading = document.createElement("h5");
+        heading.textContent = title;
+
+        const authorText = document.createElement("p");
+        authorText.textContent = author;
+
+        bookInfo.append(heading, authorText);
+        card.append(img, bookInfo);
+
+        container.appendChild(card);
+
+    });
 }
 
-async function getBookById(bookId) {
-    try {
-        const response = await fetch(`${API_URL}/${encodeURIComponent(bookId)}`);
+const searchForm = document.getElementById("searchForm");
 
-        if (!response.ok) {
-            throw new Error("Book not found");
+if (searchForm) {
+
+    searchForm.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const searchInput = document.getElementById("searchInput");
+
+        const keyword = searchInput.value.trim();
+
+        if (keyword === "") {
+            alert("Please enter a book name or author!");
+            return;
         }
 
-        return await response.json();
+        window.location.href =
+            "webpages/explore.html?q=" + encodeURIComponent(keyword);
 
-    } catch (error) {
-        console.error("API Error:", error);
-        return null;
-    }
+    });
+
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    loadFeaturedBooks();
+});
 
