@@ -1,67 +1,73 @@
 const loginForm = document.getElementById("loginForm");
 
-loginForm.addEventListener("submit", function(event) {
+if (loginForm) {
 
-    event.preventDefault();
+    loginForm.addEventListener("submit", function(event) {
 
-    const usernameInput = document.getElementById("username");
-    const emailInput = document.getElementById("email");
-    const passwordInput = document.getElementById("password");
+        event.preventDefault();
 
-    const password = passwordInput.value;
+        const username = document
+            .getElementById("username")
+            .value.trim();
 
-    const account = usernameInput
-        ? usernameInput.value.trim()
-        : emailInput.value.trim();
+        const password = document
+            .getElementById("password")
+            .value;
 
-    const message = document.getElementById("loginMessage");
+        const message = document.getElementById("loginMessage");
 
-    let users = [];
+        let users = [];
 
-    try {
-        users = JSON.parse(
-            localStorage.getItem("bookeryUsers")
-        ) || [];
-    } catch (error) {
-        showMessage("Unable to read account data.", "error");
-        return;
-    }
+        try {
+            users = JSON.parse(
+                localStorage.getItem("bookeryUsers")
+            ) || [];
 
-    const user = users.find(user => {
+        } catch (error) {
+            showMessage("Unable to read account data.", "error");
+            return;
+        }
 
-        const accountMatches =
-            user.username.toLowerCase() === account.toLowerCase() ||
-            user.email.toLowerCase() === account.toLowerCase();
+        const user = users.find(account =>
+            account.username.toLowerCase() === username.toLowerCase() &&
+            account.password === password
+        );
 
-        return accountMatches && user.password === password;
+        if (!user) {
+            showMessage(
+                "Incorrect username or password. Please try again.",
+                "error"
+            );
+            return;
+        }
+
+        localStorage.setItem(
+            "currentUser",
+            JSON.stringify({
+                username: user.username,
+                email: user.email
+            })
+        );
+
+        showMessage(
+            "Login successful! Welcome to Bookery.",
+            "success"
+        );
+
+        setTimeout(function() {
+            window.location.href = "../index.html";
+        }, 1200);
+
     });
 
-    if (!user) {
-        showMessage("Incorrect username, email or password.", "error");
-        return;
-    }
-
-    localStorage.setItem("currentUser", JSON.stringify({
-        username: user.username,
-        email: user.email
-    }));
-
-    showMessage("Login successful! Welcome to Bookery.", "success");
-
-    setTimeout(() => {
-        window.location.href = "../index.html";
-    }, 1200);
-
-});
+}
 
 function showMessage(text, type) {
 
     const message = document.getElementById("loginMessage");
 
-    if (message) {
-        message.textContent = text;
-        message.className = type;
-    } else {
-        alert(text);
-    }
+    if (!message) return;
+
+    message.textContent = text;
+    message.className = type;
 }
