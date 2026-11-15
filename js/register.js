@@ -53,9 +53,13 @@ registerForm.addEventListener("submit", function(event) {
 
      localStorage.setItem("bookeryUsers", JSON.stringify(users));
 
-    showMessage("Registration successful! You can now log in.", "success");
+    showMessage("Registration successful! Returning to homepage...", "success");
 
-    registerForm.reset();
+registerForm.reset();
+
+setTimeout(() => {
+    window.location.href = "../index.html";
+}, 1200);
 
 });
 
